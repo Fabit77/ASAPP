@@ -1,0 +1,53 @@
+{
+  "name": "asapp",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @asapp/web",
+    "build": "npm run build -w @asapp/web",
+    "start": "npm run start -w @asapp/web",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "db:migrate": "node --env-file-if-exists=.env.local --import tsx scripts/database.ts migrate",
+    "db:seed": "node --env-file-if-exists=.env.local --import tsx scripts/database.ts seed",
+    "db:reset": "node --env-file-if-exists=.env.local --import tsx scripts/database.ts reset",
+    "dev:tools": "node --env-file-if-exists=.env.local --import tsx scripts/dev-tools.ts"
+  },
+  "dependencies": {
+    "@electric-sql/pglite": "^0.3.14",
+    "@supabase/ssr": "latest",
+    "@supabase/supabase-js": "latest",
+    "lucide-react": "latest",
+    "next": "16.3.4",
+    "postgres": "^3.4.7",
+    "qrcode": "^1.5.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.4",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "@tailwindcss/postcss": "^4.1.0",
+    "@types/node": "^22.0.0",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.3.4",
+    "prettier": "^3.9.6",
+    "tailwindcss": "^4.1.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}
