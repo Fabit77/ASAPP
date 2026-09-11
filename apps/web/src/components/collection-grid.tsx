@@ -1,22 +1,22 @@
 "use client";
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, SlidersHorizontal, ArrowUpRight, Check } from "lucide-react";
-import { Artwork, Empty, formatDate } from "@asapp/ui";
+import { Search, SlidersHorizontal, ArrowUpRight } from "lucide-react";
+import { CollectibleArtwork, Empty, formatDate } from "@asapp/ui";
 import type { Drop } from "@asapp/core";
 export function DropCard({ drop }: { drop: Drop }) {
   return (
     <Link className="drop-card" href={"/collectibles/" + drop.slug}>
       <div className="card-art">
-        <Artwork src={drop.artwork_url} title={drop.title} />
+        <CollectibleArtwork
+          src={drop.artwork_url}
+          title={drop.title}
+          size="lg"
+          claimed={!!drop.claimed_at}
+        />
         <span className="card-arrow">
           <ArrowUpRight size={20} />
         </span>
-        {drop.claimed_at && (
-          <span className="owned-dot" aria-label="Coleccionado">
-            <Check size={13} />
-          </span>
-        )}
       </div>
       <p className="card-org">{drop.organization_name}</p>
       <h3>{drop.title}</h3>

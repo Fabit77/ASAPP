@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, CalendarDays, MapPin, Check } from "lucide-react";
-import { Artwork, Badge, formatDate } from "@asapp/ui";
+import {
+  CollectibleArtwork,
+  Badge,
+  formatDate,
+  formatLongDate,
+} from "@asapp/ui";
 import { currentUser, services } from "@/lib/server";
 import { ShareButton } from "@/components/forms";
 export default async function Detail({
@@ -25,7 +30,13 @@ export default async function Detail({
       </Link>
       <div className="detail-grid">
         <div className="detail-art">
-          <Artwork src={drop.artwork_url} title={drop.title} size="large" />
+          <div className="detail-halo" aria-hidden="true" />
+          <CollectibleArtwork
+            src={drop.artwork_url}
+            title={drop.title}
+            size="hero"
+            claimed={!!drop.claimed_at}
+          />
         </div>
         <div className="detail-info">
           <Badge>Un asado para recordar</Badge>
@@ -36,7 +47,7 @@ export default async function Detail({
           <div className="detail-facts">
             <div>
               <CalendarDays size={19} />
-              {formatDate(drop.date)}
+              {formatLongDate(drop.date)}
             </div>
             <div>
               <MapPin size={19} />
@@ -51,9 +62,9 @@ export default async function Detail({
           </div>
           <p className="description">{drop.description}</p>
           {drop.claimed_at ? (
-            <div className="memory-proof">
+            <div className="memory-proof claimed-stamp">
               <strong>
-                <Check size={18} /> Coleccionado · Estuviste ahí.
+                <Check size={21} /> ESTUVISTE AHÍ
               </strong>
               <p>Lo guardaste el {formatDate(drop.claimed_at)}.</p>
             </div>

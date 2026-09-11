@@ -1,17 +1,21 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-import { Artwork, ButtonLink } from "@asapp/ui";
+import { CollectibleArtwork, ButtonLink } from "@asapp/ui";
 import { currentUser } from "@/lib/server";
 export default async function Home() {
   if (await currentUser()) redirect("/collection");
   return (
     <main className="container">
       <section className="landing-hero">
-        <div>
-          <p className="eyebrow">Cada asado cuenta.</p>
+        <div className="hero-copy-block">
+          <p className="hero-brand" aria-hidden="true">
+            ASAPP
+          </p>
           <h1 className="hero-title">
-            Colecciona los asados que <em>viviste.</em>
+            Colecciona los asados
+            <br />
+            que <em>viviste.</em>
           </h1>
           <p className="hero-copy">
             Cada asado tiene una historia. Guarda los que viviste y construye tu
@@ -25,13 +29,15 @@ export default async function Home() {
           </div>
         </div>
         <div
-          className="hero-art"
+          className="hero-orbit"
           aria-label="Una colección de recuerdos de asados"
         >
           {[1, 2, 6, 3].map((i) => (
-            <Artwork
+            <CollectibleArtwork
               key={i}
               src={`/artworks/${i}.svg`}
+              size={i === 1 ? "hero" : i === 2 ? "xl" : "lg"}
+              priority={i === 1}
               title={
                 [
                   "",
@@ -45,37 +51,25 @@ export default async function Home() {
               }
             />
           ))}
-          <div className="hero-stamp">
-            <strong>Estuviste</strong>
-            <span>ahí. Y eso cuenta.</span>
+          <div className="hero-stamp" aria-hidden="true">
+            <span>ESTUVISTE</span>
+            <strong>AHÍ</strong>
+            <span>ASAPP · 2026</span>
           </div>
         </div>
       </section>
       <section className="how">
-        <p className="eyebrow">Así de simple</p>
-        <h2>De la mesa a tu historia.</h2>
+        <p className="eyebrow">ASÍ DE SIMPLE</p>
         <div className="how-grid">
           {[
-            [
-              "01",
-              "Vas a un asado",
-              "Te encuentras con tu gente. Compartes la mesa y el momento.",
-            ],
-            [
-              "02",
-              "Lo coleccionas",
-              "Escaneas el QR o ingresas la palabra que comparte tu anfitrión.",
-            ],
-            [
-              "03",
-              "Queda en tu historia",
-              "Un recuerdo para volver a ese día, todas las veces que quieras.",
-            ],
+            ["01", "VAS.", "Una mesa, tu gente, ese momento."],
+            ["02", "COLECCIONAS.", "Un QR. Un gesto. Ya es parte de ti."],
+            ["03", "QUEDA.", "El asado pasa. La historia se queda."],
           ].map(([number, title, copy]) => (
             <div key={number} className="how-item">
               <span>{number}</span>
               <div>
-                <h3>{title}</h3>
+                <h2>{title}</h2>
                 <p>{copy}</p>
               </div>
             </div>

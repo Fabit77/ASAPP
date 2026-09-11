@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Artwork, formatDate } from "@asapp/ui";
+import { CollectibleArtwork, formatLongDate } from "@asapp/ui";
 import type { Drop } from "@asapp/core";
 import { currentUser, services } from "@/lib/server";
 import { ClaimForm } from "./forms";
@@ -20,12 +20,18 @@ export async function ClaimPage({
     : null;
   return (
     <main className="container claim-layout">
-      <p className="eyebrow">Los buenos momentos se guardan.</p>
-      <Artwork src={drop.artwork_url} title={drop.title} />
+      <p className="eyebrow">UN RECUERDO TE ESTÁ ESPERANDO</p>
+      <div className="claim-art-stage">
+        <CollectibleArtwork
+          src={drop.artwork_url}
+          title={drop.title}
+          size="hero"
+        />
+      </div>
       <p className="card-org">{drop.organization_name}</p>
       <h1>{drop.title}</h1>
       <p className="muted">
-        {formatDate(drop.date)} · {drop.city}
+        {formatLongDate(drop.date)} · {drop.city}
       </p>
       <p className="description">
         Un recuerdo de una mesa compartida.

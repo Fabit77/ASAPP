@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
+import { Manrope } from "next/font/google";
 import { Navigation } from "@/components/navigation";
 import { currentUser, localDemo } from "@/lib/server";
 import "./globals.css";
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: { default: "ASAPP — Cada asado cuenta.", template: "%s · ASAPP" },
@@ -16,7 +22,7 @@ export default async function Layout({
   const user = await currentUser();
   return (
     <html lang="es">
-      <body>
+      <body className={manrope.variable}>
         {localDemo() && (
           <div className="demo-banner">
             {process.env.ASAPP_HOSTED_DEMO === "true"

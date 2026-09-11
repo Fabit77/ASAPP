@@ -98,8 +98,9 @@ export function Stats({
         ["Recuerdos coleccionados", claims],
         ["Coleccionistas únicos", collectors],
         ["Coleccionados este mes", month],
-      ].map(([label, value]) => (
+      ].map(([label, value], index) => (
         <div className="stat" key={label}>
+          <span className="stat-index">0{index + 1}</span>
           <p>{label}</p>
           <strong>{value}</strong>
         </div>
