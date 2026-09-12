@@ -35,7 +35,7 @@ export default async function Explore() {
           title="La próxima mesa se está preparando."
           description="Vuelve pronto para descubrir nuevos encuentros."
           href="/studio/drops/new"
-          cta="Crear un asado"
+          cta="Crear coleccionable"
         />
       )}
       <div className="section-heading">

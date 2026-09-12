@@ -94,7 +94,7 @@ export function Stats({
   return (
     <div className="stats-grid">
       {[
-        ["Asados creados", drops],
+        ["Coleccionables creados", drops],
         ["Recuerdos coleccionados", claims],
         ["Coleccionistas únicos", collectors],
         ["Coleccionados este mes", month],

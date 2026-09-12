@@ -12,7 +12,9 @@ export default async function Drops() {
         description="Cada encuentro merece su propio recuerdo."
         action={
           org.role !== "VIEWER" ? (
-            <ButtonLink href="/studio/drops/new">Crear un asado</ButtonLink>
+            <ButtonLink href="/studio/drops/new">
+              Crear coleccionable
+            </ButtonLink>
           ) : undefined
         }
       />

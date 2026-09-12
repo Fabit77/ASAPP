@@ -17,7 +17,7 @@ export function StudioNav() {
     <nav className="studio-nav" aria-label="Studio">
       {[
         { href: "/studio", label: "Inicio", icon: LayoutDashboard },
-        { href: "/studio/drops", label: "Asados", icon: Disc3 },
+        { href: "/studio/drops", label: "Coleccionables", icon: Disc3 },
         { href: "/studio/collections", label: "Colecciones", icon: Layers },
         { href: "/studio/collectors", label: "Coleccionistas", icon: Users },
         {

@@ -13,13 +13,15 @@ export default async function Studio() {
         description="Los encuentros que creaste, las historias que quedan."
         action={
           org.role !== "VIEWER" ? (
-            <ButtonLink href="/studio/drops/new">Crear un asado</ButtonLink>
+            <ButtonLink href="/studio/drops/new">
+              Crear coleccionable
+            </ButtonLink>
           ) : undefined
         }
       />
       <Stats {...summary} drops={summary.drops.length} />
       <div className="section-heading">
-        <h2>Tus últimos asados</h2>
+        <h2>Tus últimos coleccionables</h2>
       </div>
       {summary.drops.length ? (
         <DropTable drops={summary.drops.slice(0, 5)} />
