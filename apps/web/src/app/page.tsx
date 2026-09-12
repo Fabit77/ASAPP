@@ -22,9 +22,9 @@ export default async function Home() {
             colección.
           </p>
           <div className="button-row">
-            <ButtonLink href="/login">Empezar mi colección</ButtonLink>
+            <ButtonLink href="/explore">Ver coleccionables</ButtonLink>
             <Link className="text-link" href="/studio">
-              Crear un asado <ArrowRight size={17} />
+              Crear coleccionable <ArrowRight size={17} />
             </Link>
           </div>
         </div>

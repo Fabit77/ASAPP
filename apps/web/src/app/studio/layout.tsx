@@ -14,7 +14,7 @@ export default async function StudioLayout({
       <aside className="studio-sidebar">
         <div className="studio-brand">
           <Logo />
-          <span>Studio</span>
+          <span>Creator Studio</span>
         </div>
         {org && (
           <form action={selectOrg}>
@@ -39,8 +39,8 @@ export default async function StudioLayout({
           </form>
         )}
         <StudioNav />
-        <Link className="consumer-link" href="/collection">
-          ← Volver a mi colección
+        <Link className="consumer-link" href="/explore">
+          ← Volver a ASAPP
         </Link>
       </aside>
       <main className="studio-main">{children}</main>

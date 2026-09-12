@@ -119,16 +119,6 @@ textarea:focus-visible {
   color: var(--muted);
   font-size: 0.78rem;
 }
-.demo-banner {
-  background: var(--butter);
-  color: var(--charcoal);
-  font-size: 0.68rem;
-  font-weight: 750;
-  letter-spacing: 0.08em;
-  padding: 0.35rem 1rem;
-  text-align: center;
-  text-transform: uppercase;
-}
 .container {
   width: min(100% - 6rem, 1320px);
   margin-inline: auto;
@@ -196,9 +186,18 @@ textarea:focus-visible {
 .studio-link {
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.45rem;
+  border: 1px solid var(--tomato);
+  border-radius: var(--pill);
+  background: var(--tomato);
+  color: var(--white);
+  padding: 0.65rem 1rem;
   font-size: 0.78rem;
-  font-weight: 750;
+  font-weight: 800;
+}
+.studio-link:hover {
+  background: var(--tomato-dark);
+  border-color: var(--tomato-dark);
 }
 .avatar {
   width: 42px;
@@ -215,6 +214,23 @@ textarea:focus-visible {
 }
 .bottom-nav {
   display: none;
+}
+.access-paths {
+  margin-top: 1.5rem;
+}
+.access-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin: 0.75rem 0;
+}
+.access-divider::before,
+.access-divider::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid var(--border);
 }
 
 .button {
@@ -1513,9 +1529,6 @@ details p {
   h1 {
     font-size: clamp(2.5rem, 12vw, 3.2rem);
   }
-  .demo-banner {
-    font-size: 0.58rem;
-  }
   .container,
   .topbar,
   .site-footer {
@@ -1536,7 +1549,11 @@ details p {
     display: none;
   }
   .studio-link {
-    font-size: 0.68rem;
+    font-size: 0;
+    width: 38px;
+    height: 38px;
+    justify-content: center;
+    padding: 0;
   }
   .avatar {
     width: 38px;
@@ -1571,6 +1588,20 @@ details p {
   .bottom-nav a.active {
     color: var(--tomato);
     transform: translateY(-2px);
+  }
+  .bottom-nav .bottom-nav__creator {
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    margin-block: -1rem;
+    justify-content: center;
+    border: 4px solid var(--cream);
+    border-radius: 50%;
+    background: var(--tomato);
+    color: var(--white);
+  }
+  .bottom-nav .bottom-nav__creator span {
+    font-size: 0.52rem;
   }
   .landing-hero {
     min-height: auto;

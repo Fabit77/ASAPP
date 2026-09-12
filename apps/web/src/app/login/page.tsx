@@ -36,28 +36,27 @@ export default async function Login({
           </p>
         )}
         {localDemo() ? (
-          <>
-            <p className="notice">
-              Estás en la versión de desarrollo. Elige una cuenta de ejemplo
-              para recorrer ASAPP.
-            </p>
+          <div className="access-paths">
             <form action={demoAction} className="form-stack">
               <input type="hidden" name="next" value={next} />
               <button className="button" name="persona" value="new">
-                Entrar con colección vacía
+                Entrar a mi colección
               </button>
+            </form>
+            <div className="access-divider">
+              <span>o</span>
+            </div>
+            <form action={demoAction} className="form-stack">
+              <input type="hidden" name="next" value="/studio" />
               <button
                 className="button button-secondary"
                 name="persona"
                 value="owner"
               >
-                Entrar como Fabio · organizador
+                Abrir Creator Studio
               </button>
-              <p className="fineprint">
-                En producción, el acceso se realiza por email con Supabase.
-              </p>
             </form>
-          </>
+          </div>
         ) : (
           <LoginForm next={next} />
         )}

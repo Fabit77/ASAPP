@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import { Navigation } from "@/components/navigation";
-import { currentUser, localDemo } from "@/lib/server";
+import { currentUser } from "@/lib/server";
 import "./globals.css";
 const manrope = Manrope({
   subsets: ["latin"],
@@ -23,13 +23,6 @@ export default async function Layout({
   return (
     <html lang="es">
       <body className={manrope.variable}>
-        {localDemo() && (
-          <div className="demo-banner">
-            {process.env.ASAPP_HOSTED_DEMO === "true"
-              ? "Demo pública · los cambios pueden reiniciarse"
-              : "Vista de desarrollo · datos de ejemplo"}
-          </div>
-        )}
         <Navigation signedIn={!!user} />
         {children}
         <footer className="site-footer">
